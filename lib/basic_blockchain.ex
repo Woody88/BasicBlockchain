@@ -71,19 +71,19 @@ defmodule BasicBlockchain do
      end
    end
 
-   def mine(blockchain, block, nonce) do
+   def mine(blockchain, block) do
       cond do
         block.nonce == @nonce_limit ->
           {:error, "could not mine block."}
-        {:success, mined_block, _} =  mining(blockchain, block, nonce) ->
+        {:success, mined_block, _} =  mining(blockchain, block) ->
           :ok = update_block_from_chain(blockchain, mined_block)
       end
    end
 
-   def mining(blockchain, block, nonce) do
+   def mining(blockchain, block) do
      inc_nonce = nonce + 1
      mine_attempt = calculate_hash(block, blockchain)
-     if mine_attempt |> String.starts_with?("0000"), do: {:success, %{block | hash: mine_attempt, nonce: inc_nonce}, "Mine completed!"}, else: mine(blockchain, %{block | nonce: inc_nonce}, inc_nonce)
+     if mine_attempt |> String.starts_with?("0000"), do: {:success, %{block | hash: mine_attempt, nonce: inc_nonce}, "Mine completed!"}, else: mine(blockchain, %{block | nonce: inc_nonce})
    end
 
 end
