@@ -85,20 +85,3 @@ defmodule BasicBlockchain do
        if mine_attempt |> String.starts_with?("0000"), do: {:success, %{block | hash: mine_attempt}, "Mine completed!"}, else: mine(blockchain, block)
    end
 end
-
-# {:ok, blockchain} = BasicBlockchain.create_blockchain
-# genesis_block = BasicBlockchain.get_blockchain(blockchain)
-  # transaction_data = %{sender: "Ikumi", recepient: "Woodson", amount: 35, payment: "Debit" }
-  # ts_bl1 = BasicBlockchain.generate_next_block(transaction_data, blockchain)
-#  BasicBlockchain.add_block_to_chain(blockchain, ts_bl1)
-# transaction_data2 = %{sender: "Woodson", recepient: "Jawaad", amount: 10, payment: "Debit" }
-# ts_bl2 = BasicBlockchain.generate_next_block(transaction_data2, blockchain)
-#  BasicBlockchain.add_block_to_chain(blockchain, ts_bl2)
-#  blocks = BasicBlockchain.get_blockchain(blockchain)
-# [update_block | _] = blocks
-# updated_block = Map.from_struct(update_block) |> Kernel.put_in([:data,:amount], 15)
-# %{index: 0, previousHash: "0", timestamp: :os.system_time(:millisecond), data: "my genesis!", hash: "U1iquFMbMopg1jG+Vqtn/h4jPQEE6hGnWgNoj0nRr5Ez1PlQ8XSpFDDeWmXChPN5"}
-# h = BasicBlockchain.calculate_hash(b)
-# block = BasicBlockchain.create(%{b | hash: hblocks = BasicBlockchain.get_blockchain(blockchain)})
-# transaction_data = %{sender: "Ikumi", recepient: "Woodson", amount: 35, payment: "Debit" }
-# BasicBlockchain.generate_next_block(transaction_data, blockchain)
